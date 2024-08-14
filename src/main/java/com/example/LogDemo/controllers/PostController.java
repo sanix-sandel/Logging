@@ -7,10 +7,7 @@ import com.example.LogDemo.services.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,8 +28,8 @@ public class PostController {
     }
 
     @PostMapping("")
-    public ResponseEntity<String> save(Post post){
-        logger.info("Request Body "+post);
+    public ResponseEntity<String> save(@RequestBody Post post){
+        logger.info("Request Body "+post.toString());
         return ResponseEntity.ok(service.savePost(post));
     }
 
