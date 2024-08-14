@@ -4,6 +4,8 @@ package com.example.LogDemo.controllers;
 import com.example.LogDemo.repositories.Post;
 import com.example.LogDemo.repositories.PostDB;
 import com.example.LogDemo.services.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import java.util.List;
 public class PostController {
 
     private Service service;
+    private Logger logger = LoggerFactory.getLogger(PostController.class);
 
     public PostController(Service service) {
         this.service = service;
@@ -29,6 +32,7 @@ public class PostController {
 
     @PostMapping("")
     public ResponseEntity<String> save(Post post){
+        logger.info("Request Body "+post);
         return ResponseEntity.ok(service.savePost(post));
     }
 
