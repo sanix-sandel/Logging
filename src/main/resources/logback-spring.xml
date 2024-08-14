@@ -12,11 +12,9 @@
         </layout>
     </appender>
 
-    <appender name="RollingFile"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGS}/spring-boot-logger.log</file>
-        <encoder
-                class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        <encoder>
             <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</Pattern>
         </encoder>
 
@@ -32,8 +30,8 @@
         </rollingPolicy>
     </appender>
 
-    <!-- LOG everything at INFO level -->
-    <root level="DEBUG">
+    <!-- LOG everything at  level -->
+    <root level="TRACE" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
     </root>
