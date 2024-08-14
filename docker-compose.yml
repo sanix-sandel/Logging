@@ -37,7 +37,7 @@ services:
     user: root
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - /path/to/your/spring-boot-app.log:/path/to/your/spring-boot-app.log:ro
+      - ./logs/spring-boot-app.log:/path/to/your/spring-boot-app.log:ro
     depends_on:
       - logstash
 

@@ -1,0 +1,17 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /logs/spring-boot-app.log
+    fields:
+      application: spring-boot-app
+    fields_under_root: true
+
+monitoring:
+  enabled: true
+  elasticsearch:
+    hosts: ["http:///localhost:9200"]
+
+
+output.logstash:
+  hosts: ["logstash:5044"]
