@@ -11,7 +11,7 @@ public class LogDemoApplication {
 
 
 	public static void main(String[] args) {
-		Logger logger = LoggerFactory.getLogger(PostDB.class);
+		Logger logger = LoggerFactory.getLogger(LogDemoApplication.class);
 
 		logger.info("Starting The Demo log application");
 		logger.warn("No caching mechanism implemented");
